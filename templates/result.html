@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block content %}
+<main>
+    <div class="input_file">
+        <form action="/result" method="POST" enctype="multipart/form-data" name="file">
+            <div class="file_select">
+                <label for="file">wordファイルを選んでね:</label>
+                <input type="file" name="file">
+            </div>
+            <div class="result_btn">
+                <input type="submit" value="見る" class="send">
+            </div>
+            <div class="result">
+                <p>{{ open_file }}</p>
+                <p>{{ co_net }}</p>
+            </div>
+        </form>
+    </div>
+</main>
+{% endblock %}
