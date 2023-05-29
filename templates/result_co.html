@@ -2,18 +2,26 @@
 {% block content %}
 <main>
     <div class="input_file">
-        <form action="/result" method="POST" enctype="multipart/form-data" name="file">
+        <form action="/result_co" method="POST" enctype="multipart/form-data" name="file">
             <div class="file_select">
                 <label for="file">wordファイルを選んでね:</label>
                 <input type="file" name="file">
+                <p>※こちらは「グラフのみ」新しいページに表示されますのでご注意下さい</p>
             </div>
+
             <div class="result_btn">
                 <input type="submit" value="見る" class="send">
             </div>
+
+            {% if sum_result %}
+
             <div class="result">
-                <p>{{ open_file }}</p>
-                <p>{{ co_net }}</p>
+                <p>{{ sum_result }}</p>
             </div>
+            <div class="result">
+
+            </div>
+            {% endif %}
         </form>
     </div>
 </main>

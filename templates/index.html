@@ -2,14 +2,27 @@
 {% block content %}
 
 <main>
-    <h1 class="content_title">〜　パッと見！　〜</h1>
+    <h1 class="content_title">パッと見</h1>
     <div class="content">
-        <h1>どの文章を”パッと見”したい？</h1>
-        <p class="resizeimage">
-            <img src="../static/images/" alt="共起ネットワーク" class="sample_image">
-        </p>
+        <h1>どの文章を「パッと見」したい？</h1>
+
+        <div class="introduction">
+            <p>このサービスは、記事や論文、レポートなどの長い文章を</p>
+            <p>要約したもの、グラフ化したものの２つを表示します！</p>
+
+            <p>2パターンの"パッと見"ができるようになっていので、もしよろしければ両方お試しください^^</p>
+
+        </div>
+
         <div class="click_btn">
-            <a href="/result">"パッと見"する</a>
+            <img src="../static/images/sample/samplewc.png" alt="sampleワードクラウド" class="sample_image">
+            <a href="/result_cloud">「ワードクラウド」でパッと見する</a>
+        </div>
+
+        <div class="click_btn">
+            <img src="../static/images/sample/sampleco.png" alt="sample共起ネットワーク" class="sample_image">
+            <a href="/result_co">「共起ネットワーク」でパッと見する</a>
+            <p>※こちらは「グラフのみ」新しいページに表示されますのでご注意下さい</p>
         </div>
     </div>
 </main>

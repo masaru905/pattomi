@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block content %}
+<main>
+    <div class="input_file">
+        <form action="/result_cloud" method="POST" enctype="multipart/form-data" name="file">
+            <div class="file_select">
+                <label for="file">wordファイルを選んでね:</label>
+                <input type="file" name="file">
+            </div>
+            <div class="result_btn">
+                <input type="submit" value="見る" class="send">
+            </div>
+
+            {% if sum_result %}
+
+            <div class="result">
+                <p>{{ sum_result }}</p>
+            </div>
+            <div class="result">
+                <img src="../static/images/wc/wordcloud.png" alt="Word Cloud">
+            </div>
+            {% endif %}
+        </form>
+    </div>
+</main>
+{% endblock %}

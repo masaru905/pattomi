@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request
-from model import summarize_docx, co_network
+from model_sum import summarize_docx
+from model_co import co_network
+from model_cloud import word_cloud
 
 app = Flask(__name__)
 
@@ -7,18 +9,25 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
     
-
-@app.route("/result", methods=["GET", "POST"])
-def upload():
+@app.route("/result_cloud", methods=["GET", "POST"])
+def upload_cloud():
     if request.method == "GET":
-        return render_template('result.html')
+        return render_template('result_cloud.html')
     elif request.method == "POST":
         file = request.files['file']
-        open_file = summarize_docx(file)
+        sum_result = summarize_docx(file)
+        cloud = word_cloud(file)
+        return render_template('result_cloud.html', sum_result=sum_result)
+
+@app.route("/result_co", methods=["GET", "POST"])
+def upload_co():
+    if request.method == "GET":
+        return render_template('result_co.html')
+    elif request.method == "POST":
+        file = request.files['file']
+        sum_result = summarize_docx(file)
         co_net = co_network(file)
-        return render_template('result.html', open_file=open_file, co_net=co_net)
-
-
+        return render_template('result_co.html', sum_result=sum_result)
     
 if __name__ == "__main__":
     app.run(debug=True)
