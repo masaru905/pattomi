@@ -1,28 +1,39 @@
 {% extends "layout.html" %}
 {% block content %}
 <main>
+    <div class="intro">
+        <h1>共起ネットワーク</h1>
+        <p class="intro_fir">こちらは出てきた単語の量とつながりが一目でわかるというものです。</p>
+    </div>
     <div class="input_file">
-        <form action="/result_co" method="POST" enctype="multipart/form-data" name="file">
+        <form action="/result_co" method="POST" enctype="multipart/form-data">
             <div class="file_select">
                 <label for="file">wordファイルを選んでね:</label>
                 <input type="file" name="file">
-                <p>※こちらは「グラフのみ」新しいページに表示されますのでご注意下さい</p>
+                <p class="intro_sec">※こちらは「グラフのみ」新しいタブに表示されますのでご注意下さい。</p>
+                <p>要約はこのページに表示されます。</p>
             </div>
 
             <div class="result_btn">
                 <input type="submit" value="見る" class="send">
             </div>
-
-            {% if sum_result %}
-
-            <div class="result">
-                <p>{{ sum_result }}</p>
-            </div>
-            <div class="result">
-
-            </div>
-            {% endif %}
         </form>
+        {% if sum_result %}
+
+        <div class="result">
+            <h2>要約　結果</h2>
+            <p class="sum_result">{{ sum_result }}</p>
+        </div>
+
+        <div class="result">
+
+        </div>
+        {% endif %}
+
+        {% if error_message %}
+        <p class="error">{{ error_message }}</p>
+        {% endif %}
+
     </div>
 </main>
 {% endblock %}

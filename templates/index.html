@@ -1,30 +1,52 @@
 {% extends "layout.html" %}
 {% block content %}
-
 <main>
-    <h1 class="content_title">パッと見</h1>
-    <div class="content">
-        <h1>どの文章を「パッと見」したい？</h1>
 
-        <div class="introduction">
-            <p>このサービスは、記事や論文、レポートなどの長い文章を</p>
-            <p>要約したもの、グラフ化したものの２つを表示します！</p>
+    <div class="intro">
+        <img src="../static/images/header.png" alt="head_img" class="head_img">
+    </div>
 
-            <p>2パターンの"パッと見"ができるようになっていので、もしよろしければ両方お試しください^^</p>
-
-        </div>
-
-        <div class="click_btn">
-            <img src="../static/images/sample/samplewc.png" alt="sampleワードクラウド" class="sample_image">
-            <a href="/result_cloud">「ワードクラウド」でパッと見する</a>
-        </div>
-
-        <div class="click_btn">
-            <img src="../static/images/sample/sampleco.png" alt="sample共起ネットワーク" class="sample_image">
-            <a href="/result_co">「共起ネットワーク」でパッと見する</a>
-            <p>※こちらは「グラフのみ」新しいページに表示されますのでご注意下さい</p>
+    <div class="concept_main">
+        <h2>Concept</h2>
+        <div class="con_con">
+            <div class="con_text">
+                <p class="con_text_title">文章の要点を「見える化」</p>
+                <p class="con_text_con">長い文章を読むのを煩わしいと感じたことはありませんか？<br />
+                    <br />
+                    このサービスは、文書の要点のみを「パッと見」でわかるようにするというものです。<br />
+                </p>
+            </div>
+            <div class="con_img">
+                <img src="../static/images/text.png" alt="text_image" class="con_image">
+            </div>
         </div>
     </div>
+
+    <div class="contents_main">
+        <h2>Contents</h2>
+        <div class="contents_two">
+            <div class="content">
+                <a href="/result_cloud">
+                    <img alt="wordcloud" class="sample-wc" src="../static/images/sample/samplewc.png" />
+                    <a href="/result_cloud" class="content_title">ワードクラウド</a>
+                    <p class="content_intro">
+                        こちらは単語が出てきた数によって、単語の大きさが変わるというものです。
+                    </p>
+                </a>
+            </div>
+
+            <div class="content">
+                <a href="/result_co">
+                    <img alt="co_network" class="sample-co" src="../static/images/sample/sampleco.png" />
+                    <a href="/result_co" class="content_title">共起ネットワーク</a>
+                    <p class="content_intro">
+                        こちらは出てきた単語の量とつながりが一目でわかるというものです。
+                    </p>
+                </a>
+            </div>
+        </div>
+    </div>
+
 </main>
 
 {% endblock %}
