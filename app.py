@@ -2,7 +2,6 @@ from flask import Flask, render_template, request
 from model_sum import summarize_docx
 from model_co import co_network
 from model_cloud import word_cloud
-import os
 
 app = Flask(__name__)
 
