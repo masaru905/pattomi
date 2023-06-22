@@ -6,10 +6,9 @@ from model_cloud import word_cloud
 app = Flask(__name__)
 
 # indexページ
-@app.route("/", method=["GET"])
+@app.route("/")
 def index():
-    if request.method == "GET":
-        return render_template('index.html')
+    return render_template('index.html')
 
 # cloudページ 
 @app.route("/result_cloud", methods=["GET", "POST"])
