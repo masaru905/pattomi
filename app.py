@@ -17,13 +17,9 @@ def upload_cloud():
         return render_template('result_cloud.html')
     elif request.method == "POST":
         file = request.files['file']
-        if file and allowed_file(file.filename):
-            sum_result = summarize_docx(file)
-            cloud = word_cloud(file)
-            return render_template('result_cloud.html', sum_result=sum_result)
-        else:
-            error_message = "そのファイルは受け取れません。Wordファイルを送信して下さい。"
-            return render_template('result_cloud.html', error_message=error_message)
+        sum_result = summarize_docx(file)
+        cloud = word_cloud(file)
+        return render_template('result_cloud.html', sum_result=sum_result)
 
 # networkページ
 @app.route("/result_co", methods=["GET", "POST"])
@@ -32,17 +28,9 @@ def upload_co():
         return render_template('result_co.html')
     elif request.method == "POST":
         file = request.files['file']
-        if file and allowed_file(file.filename):
-            sum_result = summarize_docx(file)
-            co_net = co_network(file)
-            return render_template('result_co.html', sum_result=sum_result)
-        else:
-            error_message = "エラーが発生しました。Wordファイルを送信して下さい。"
-            return render_template('result_co.html', error_message=error_message)
-    
-# ファイルの適合確認
-def allowed_file(filename):
-    return '.' in filename and filename.rsplit('.', 1)[1].lower() == 'docx'
+        sum_result = summarize_docx(file)
+        co_net = co_network(file)
+        return render_template('result_co.html', sum_result=sum_result)
     
 if __name__ == "__main__":
     app.run(debug=True)
